@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <script type="text/javascript"> 
+$(document).ready(function(){
+$(".flip").click(function(){
+    $(".panel").slideToggle("slow");
+  });
+});
+</script>
+</head>
+<body>
+<div id="header">
+                <div class="wrap">
+                <div class="logo"></div>
+                <div class="title">
+                <td>
+                <th>首页<span>|</span></th>
+                <th>导航<span>|</span></th>
+                <th>推介<span>|</span></th>
+                <th>登录<span>|</span></th>
+</td>
+</div>
+<div class="clear"></div>
+</div>
+<div class="panel">
+         <%= link_to '寻物启示' , :action => 'about'%><span>|<span>
+         <%= link_to '信息发布' , :action => 'index'%><span>|</span>
+         <%= link_to '校园杂谈' , :action => 'index'%><span>|<span>
+</div>
+<dd class="link">
+        <div class="flip">失物招领</div>
+         <div class="flip">寻物启示</div>
+         <div class="flip">信息发布</div>
+         <div class="flip">校园杂记</div>
+</dd>
+<div id="main">
+<%= yield %>
+</div>
+<div class="footer">关于西电黑板报</div>
+</body>
+</html>
